@@ -47,21 +47,11 @@ run: `dbt debug` to confirm if all is working.
 
 > Dagster
 
-`dagster project scaffold --name dagster_ecommerce`
+>> dagster-dbt 
 
->> dagster-airbyte
+The dagster-dbt project scaffold command creates the Dagster project in whatever directory you run it from. If that's a different directory from where `dbt_project.yml` lives, then you'll need to provide a value for the --dbt-project-dir option so that Dagster knows where to look for your dbt project.
 
-Ensure that module is installed in the dagster directory so dagster can read it 
-
->> dagster-dbt
-
-You can create a Dagster project that wraps your dbt project by using the dagster-dbt command line interface. Make sure you're in the directory where your `dbt_project.yml` is. 
-
-`dagster-dbt project scaffold --project-name <name>`
-
-In general, it's up to you where to put your Dagster project. It's most common to put your Dagster project at the root of your git repository.
-
-Note: The dagster-dbt project scaffold command creates the Dagster project in whatever directory you run it from. If that's a different directory from where your `dbt_project.yml` lives, then you'll need to provide a value for the --dbt-project-dir option so that Dagster knows where to look for your dbt project.
+`dagster-dbt project scaffold --project-name dagster_ecommerce --dbt-project-dir /home/miros/DataOps/projects/bg_ecommerce/dbt_ecommerce`
 
 >> configure Dagster .py files
 
