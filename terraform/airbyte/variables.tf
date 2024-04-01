@@ -32,8 +32,9 @@ variable "dataset_location" {
     type = string
 }
 
-variable "credentials_json" {
+variable "credentials_json_path" {
     type = string
+    description = "Google Cloud service account credentials"
 }
 
 variable "gcs_bucket_name" {

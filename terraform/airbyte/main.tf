@@ -18,7 +18,7 @@ resource "airbyte_source_faker" "faker" {
 resource "airbyte_destination_bigquery" "my_destination_bigquery" {
   configuration = {
     big_query_client_buffer_size_mb = 15
-    credentials_json                = var.credentials_json
+    credentials_json                = file(var.credentials_json_path)
     dataset_id                      = var.dataset_id
     dataset_location                = var.dataset_location
     disable_type_dedupe             = false
@@ -37,9 +37,9 @@ resource "airbyte_destination_bigquery" "my_destination_bigquery" {
     }
     project_id              = var.gcp_project_id
     #raw_data_dataset        = ""
-    transformation_priority = "batch"
+    transformation_priority = "interactive"
   }
-  #definition_id = ""
+  
   name          = var.destination_name
   workspace_id  = var.airbyte_workspace_id
 }
